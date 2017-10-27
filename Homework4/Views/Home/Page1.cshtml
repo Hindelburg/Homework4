@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Page1";
+}
+
+<h1>Temperature Calculator</h1>
+
+<p>
+    Simply select what you want to convert to (either C or F). Then enter a number and click "submit".
+</p>
+
+<form method="get" action="Page1">
+    <label for="temp1">temperature 1</label>
+    <input type="number" name="temp1" value=""/>
+    <label for="to">to</label>
+    <input type="text" name="to" value="" />
+    <input type="submit" name="submit" value="Submit" />
+</form>
+
+<p>
+    @ViewBag.Message
+</p>

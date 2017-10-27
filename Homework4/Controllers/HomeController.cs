@@ -14,10 +14,10 @@ namespace Homework4.Controllers
             return View();
         }
 
-        public ActionResult Page1()
-        {
-            return View();
-        }
+        //public ActionResult Page1()
+        //{
+        //    return View();
+        //}
 
         public ActionResult Page2()
         {
@@ -26,6 +26,15 @@ namespace Homework4.Controllers
 
         public ActionResult Page3()
         {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Page1()
+        {
+            string text = Request.QueryString["temp1"];
+            ViewBag.RequestMethod = "GET";
+            ViewBag.Message = text;
             return View();
         }
     }
