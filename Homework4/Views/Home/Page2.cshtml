@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Page2";
+}
+
+<h1>Money Converter</h1>
+
+<p>
+    Simply select what currency you wish to convert to and from (Dollar, Pound, Yuan). Then enter a number and click "submit".
+</p>
+
+<form method="post" action="Page2">
+    <label for="amount">Amount</label>
+    <input type="number" name="amount" value="" />
+
+    <label for="from">from</label>
+    <input type="text" name="from" value="" />
+
+    <label for="to">to</label>
+    <input type="text" name="to" value="" />
+
+    <input type="submit" name="submit" value="Submit" />
+</form>
+
+<p>
+    Answer: @ViewBag.Message
+</p>

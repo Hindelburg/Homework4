@@ -14,21 +14,6 @@ namespace Homework4.Controllers
             return View();
         }
 
-        //public ActionResult Page1()
-        //{
-        //    return View();
-        //}
-
-        public ActionResult Page2()
-        {
-            return View();
-        }
-
-        public ActionResult Page3()
-        {
-            return View();
-        }
-
         [HttpGet]
         public ActionResult Page1()
         {
@@ -52,6 +37,71 @@ namespace Homework4.Controllers
             {
             }
             ViewBag.Message = answerText;
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Page2()
+        {
+            ViewBag.RequestMethod = "GET";
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Page2(FormCollection form)
+        {
+            ViewBag.RequestMethod = "POST";   
+            string value = Request.Form["amount"];
+            string from = Request.Form["from"];
+            string to = Request.Form["to"];
+
+            double valueT = double.Parse(value);
+ 
+            if(from == "Dollar")
+            {
+                valueT = valueT; //Unneeded but done for my wellbeing.
+            }
+            else if (from == "Pound")
+            {
+                valueT = valueT * 1.31;
+            }
+            else if (from == "Yuan")
+            {
+                valueT = valueT / 6.65;
+            }
+            else
+            {
+                value = "Please enter valid input.";
+                ViewBag.Message = value;
+                return View();
+            }
+
+            if (to == "Dollar")
+            {
+                valueT = valueT; //Unneeded but done for my wellbeing.
+            }
+            else if (to == "Pound")
+            {
+                valueT = valueT / 1.31;
+            }
+            else if (to == "Yuan")
+            {
+                valueT = valueT * 6.65;
+            }
+            else
+            {
+                value = "Please enter valid input.";
+                ViewBag.Message = value;
+                return View();
+            }
+
+            value = "" + valueT;
+            ViewBag.Message = value;
+            return View();
+        }
+
+        public ActionResult Page3()
+        {
             return View();
         }
     }
