@@ -32,9 +32,26 @@ namespace Homework4.Controllers
         [HttpGet]
         public ActionResult Page1()
         {
+            string answerText = "Please enter a valid request.";
             string text = Request.QueryString["temp1"];
+            string to = Request.QueryString["to"];
             ViewBag.RequestMethod = "GET";
-            ViewBag.Message = text;
+
+            double answer;
+            if(to == "f" || to == "F")
+            {
+                answer = (double.Parse(text) * 1.8) + 32;
+                answerText = "" + answer;
+            }
+            else if (to == "c" || to == "C")
+            {
+                answer = (double.Parse(text) - 32) / 1.8;
+                answerText = "" + answer;
+            }
+            else
+            {
+            }
+            ViewBag.Message = answerText;
             return View();
         }
     }
