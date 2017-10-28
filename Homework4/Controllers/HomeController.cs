@@ -14,6 +14,7 @@ namespace Homework4.Controllers
             return View();
         }
 
+        // Gets the answer for calculation.
         [HttpGet]
         public ActionResult Page1()
         {
@@ -23,11 +24,14 @@ namespace Homework4.Controllers
             ViewBag.RequestMethod = "GET";
 
             double answer;
+
+            // To f.
             if(to == "f" || to == "F")
             {
                 answer = (double.Parse(text) * 1.8) + 32;
                 answerText = "" + answer;
             }
+            // To c.
             else if (to == "c" || to == "C")
             {
                 answer = (double.Parse(text) - 32) / 1.8;
@@ -40,6 +44,7 @@ namespace Homework4.Controllers
             return View();
         }
 
+        // Get for page2.
         [HttpGet]
         public ActionResult Page2()
         {
@@ -47,6 +52,7 @@ namespace Homework4.Controllers
             return View();
         }
 
+        // Post for page2.
         [HttpPost]
         public ActionResult Page2(FormCollection form)
         {
@@ -57,6 +63,7 @@ namespace Homework4.Controllers
 
             double valueT = double.Parse(value);
  
+            //First converts to US dollars, no matter what.
             if(from == "Dollar")
             {
                 valueT = valueT; //Unneeded but done for my wellbeing.
@@ -76,6 +83,8 @@ namespace Homework4.Controllers
                 return View();
             }
 
+
+            //Then converts to the desired currency.
             if (to == "Dollar")
             {
                 valueT = valueT; //Unneeded but done for my wellbeing.
@@ -105,6 +114,7 @@ namespace Homework4.Controllers
             return View();
         }
 
+        //The calculation for loan stuff.
         [HttpPost]
         public ActionResult Page3(double amount, double iRate, double tLength)
         {

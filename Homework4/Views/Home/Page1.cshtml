@@ -9,6 +9,7 @@
     Simply select what you want to convert to (either C or F). Then enter a number and click "submit".
 </p>
 
+<!--Form for information for the calculation, calls page1-->
 <form method="get" action="Page1">
     <label for="temp1">temperature</label>
     <input type="number" name="temp1" value=""/>
@@ -17,6 +18,7 @@
     <input type="submit" name="submit" value="Submit" />
 </form>
 
+<!--Gets the answer from the viewbag.-->
 <p>
     Answer: @ViewBag.Message
 </p>
