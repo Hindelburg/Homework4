@@ -104,5 +104,19 @@ namespace Homework4.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Page3(double amount, double iRate, double tLength)
+        {
+            double n = tLength * 12;
+            double i = iRate / 12;
+            double d = (((Math.Pow((1 + i), n)) - 1) / (i * Math.Pow((1 + i), n)));
+            double p = amount / d;
+
+            ViewBag.Month = p + "";
+            ViewBag.Total = p * n + "";
+
+            return View();
+        }
     }
 }
